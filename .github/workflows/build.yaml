@@ -334,9 +334,7 @@ jobs:
 
       - uses: kristof-mattei/clippy-check@main
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           args: --workspace --all-targets --all-features -- --deny clippy::all --warn clippy::pedantic --warn clippy::cargo
-          name: Clippy report
 
   docker-build:
     name: Build Docker container
