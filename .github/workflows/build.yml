@@ -295,7 +295,7 @@ jobs:
         env:
           RUSTFLAGS: "-C instrument-coverage"
         run: |
-          cargo build --all-targets --workspace --verbose
+          cargo build --all-targets --all-features --workspace --verbose
 
       - name: Run nextest
         shell: bash
@@ -304,7 +304,7 @@ jobs:
           RUSTFLAGS: "-C instrument-coverage"
           LLVM_PROFILE_FILE: "profiling/profile-%p-%m.profraw"
         run: |
-          cargo nextest run --profile ci --no-fail-fast --all-targets --workspace
+          cargo nextest run --profile ci --no-fail-fast --all-targets --all-features --workspace
         continue-on-error: true
 
       - name: Upload test results
